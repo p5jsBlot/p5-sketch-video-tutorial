@@ -1,0 +1,15 @@
+var api = "https://api.giphy.com/v1/gifs/search?";
+var apiKey = "&api_key=RwkRTHCFu80hyZeVkGiEXRvC6j3YkMNF";
+var query = "&q=ryan+gosling";
+
+function setup(){
+noCanvas();
+var url = api + apiKey + query;
+loadJSON(url,gotData);
+}
+
+function gotData(giphy){
+    for (var i = 0; i < giphy.data.length;i++)
+    createImg(giphy.data[0].images.original.url);
+}
+
